@@ -1,0 +1,19 @@
+services:
+    server:
+        container_name: fabacus-server
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: npm run pm2
+        ports:
+            - 3000:3000
+        environment:
+            PORT: 3000
+            DEBUG: 1
+            REDIS_URL: redis://redis:6379
+
+    redis:
+        image: redis
+        container_name: fabacus-redis
+        ports:
+            - 6379:6379

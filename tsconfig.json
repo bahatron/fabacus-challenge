@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "preserveSymlinks": true,
+        "esModuleInterop": true,
+        "removeComments": false,
+        "declarationMap": true,
+        "noImplicitAny": false,
+        "module": "CommonJS",
+        "skipLibCheck": true,
+        "incremental": true,
+        "declaration": true,
+        "target": "ESNext",
+        "sourceMap": true,
+        "outDir": "dist",
+        "pretty": true,
+        "strict": true,
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
