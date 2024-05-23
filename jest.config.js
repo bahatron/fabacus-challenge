@@ -6,5 +6,6 @@ module.exports = {
     testEnvironment: "node",
     testMatch: ["**/*.test.ts"],
     preset: "ts-jest",
-    // setupFilesAfterEnv: ["<rootDir>/src/tests/test-setup.ts"],
+    setupFilesAfterEnv: ["<rootDir>/src/tests/setup.ts"],
+    globalTeardown: "<rootDir>/src/tests/teardown.ts",
 };
