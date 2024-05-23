@@ -1,15 +1,15 @@
 import { JsonSchema } from "@bahatron/utils";
 import { Route } from "../../app/route";
-import { reserveSeat } from "./reserve-seat";
+import { refreshSeatHold } from "./refresh-seat-hold";
 
 const RequestSchema = JsonSchema.Object({
     userId: JsonSchema.String({ format: "uuid" }),
     seatId: JsonSchema.String({ format: "uuid" }),
 });
 
-export const ReserveSeatRoute = Route({
+export const RefreshSeatHoldRoute = Route({
     method: "post",
-    route: `/events/:eventId/reserve-seat`,
+    route: `/events/:eventId/refresh-seat-hold`,
     docs: {
         parameters: [
             {
@@ -24,13 +24,13 @@ export const ReserveSeatRoute = Route({
             required: true,
         },
         responses: {
-            410: {
+            403: {
                 schema: {},
-                description: "Seat already taken",
+                description: "User cannot do refresh the hold",
             },
             204: {
                 schema: {},
-                description: "Seat reserved successfully",
+                description: "Seat hold refreshed successfully",
             },
         },
     },
@@ -42,7 +42,7 @@ export const ReserveSeatRoute = Route({
                 RequestSchema
             );
 
-            await reserveSeat({
+            await refreshSeatHold({
                 eventId,
                 userId,
                 seatId,
