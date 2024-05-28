@@ -20,7 +20,7 @@ module.exports = {
         },
         {
             name: "api",
-            script: "dist/bin/index.js",
+            script: "dist/index.js",
             exec_mode: "cluster",
             instances: DEV_MODE ? "2" : "max",
             ...LOG_CONFIG,
